@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left; }
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ul { padding-left: 1.4em; list-style:square; }
+q:before, q:after { content:''; }
+	h1{
+		text-align: center;
+		font: normal 1.1em Verdana, Geneva sans-serif;
+	}
+	
+	table{
+			text-align: center;
+			background-color: #D7F4FF;
+		    
+			width: 25%;
+			margin: auto;			
+			font: normal 1.0em Verdana, Geneva Arial-serif;
+			
+            /*background: linear-gradient(#0BJ, #B0C);*/
+			background: linear-gradient(#0EE, #BEE);
+						
+			border: 1px #F30;		
+			box-shadow: #666 7px 7px 15px;
+			/*text-shadow: #FFF 1px 1px 1px;*/
+		}
+		
+		td{	padding: 2px; }
+		
+		table .primera_fila{
+			background-color: #0FA;
+			background: linear-gradient(#00F, #0CF);
+			font-size:1.2em;
+		}
+		
+		
+		
+	    table .segunda_fila{
+			background-color: #00000D;
+			//background: linear-gradient(#00F, #0CF);
+			font-size:13px;
+		}
+
+
+/* Configurando el todo o lo básico */
+*{
+	margin: 0;
+	padding: 0;
+}
+/* Configurando el todo o body (cuerpo) */
+body{
+	/*background: #014023; Color de fondo*/
+	/*background:#22555;*/ 
+	color: #F29B30; /*Color de fuente*/
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* LLamando a la clase .formulario */
+.formulario{
+	width: 270px; /* Midiendo el ancho del formulario*/
+	background: #025939;
+	
+	padding: 40PX 20PX;
+	box-sizing: border-box;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+input[type="text"]{
+	width: 100%;
+	background: none;
+	border: 1px solid #F29B30;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	color: #F29B30;
+}
+
+input[type="password"]{
+	width: 100%;
+	background: none;
+	border: 1px solid #F29B30;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	color: #F29B30;
+}
+
+input[type="radio"]{
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	
+}
+
+input[type="mail"]{
+	width: 100%;
+	background: none;
+	border: 1px solid #F29B30;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	color: #F29B30;
+}
+
+select[class="seleccion"]{
+	width: 100%;
+	background: #014023;
+	border: 1px solid #F29B30;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	color: #F29B30;
+}
+
+input[type="phone"]{
+	width: 100%;
+	background: none;
+	border: 1px solid #F29B30;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	color: #F29B30;
+}
+
+input[type="submit"]{
+	background: gold;
+	width: 100%;
+	border: 100%;
+	border-radius: 3px;
+	padding: 6px 15px;
+	box-sizing: border-box;
+	border: none;
+	cursor: pointer;
+	color: #014023;
+	font-size: 20px;
+}
+
+input[type="submit"]:hover{
+	background: yellow;
+	transition: .6s; 
+}

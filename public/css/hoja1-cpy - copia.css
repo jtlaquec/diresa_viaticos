@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+
+	h1{
+		text-align: center;
+		font: normal 1.1em Verdana, Geneva sans-serif;
+	}
+		table{
+			text-align: center;
+			background-color: #D7F4FF;
+			width: 25%;
+			margin: auto;			
+			font: normal 1.0em Verdana, Geneva Arial-serif;
+			
+            background: linear-gradient(#00J, #B0C);
+						
+			border: 1px #F30;		
+			box-shadow: #666 7px 7px 15px;
+			text-shadow: #FFF 1px 1px 1px;
+		}
+		
+		td{	padding: 2px; }
+		table .primera_fila{
+			background-color: #0FA;
+			background: linear-gradient(#00F, #0FA);
+			font-size:1.2em;
+		}
+
