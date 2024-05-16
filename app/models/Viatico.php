@@ -20,8 +20,8 @@ class Viatico extends BaseModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getReportData($fechaInicio, $fechaFin) {
-        $sql = "SELECT * FROM viatico AS v
+    public function datosReporte($fechaInicio, $fechaFin) {
+        $sql = "SELECT * FROM {$this->table} AS v
                 INNER JOIN personal AS p ON v.personal_IdPer = p.IdPer
                 INNER JOIN banco AS b ON p.banco_IdBco = b.IdBco
                 INNER JOIN condicion_laboral AS cl ON p.condicion_laboral_IdClab = cl.IdClab
@@ -34,5 +34,14 @@ class Viatico extends BaseModel {
         $stmt->bindParam(':fechaFin', $fechaFin);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function siafExiste($siaf) {
+        $sql = "SELECT COUNT(*) FROM {$this->table} WHERE siaf = :siaf";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':siaf', $siaf, PDO::PARAM_STR);
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        return $count > 0;
     }
 }

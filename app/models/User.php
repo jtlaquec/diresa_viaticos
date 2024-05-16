@@ -13,7 +13,7 @@ class User extends BaseModel {
 
  
     public function attempt($username, $password) {
-        $query = "SELECT * FROM usuario WHERE usuario = :username";
+        $query = "SELECT * FROM {$this->table} WHERE usuario = :username";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->execute();

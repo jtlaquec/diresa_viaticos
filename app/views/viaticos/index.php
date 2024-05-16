@@ -72,7 +72,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?php echo BASE_URL; ?>/viaticos/reportes" method="POST" autocomplete="off">
+                <form action="<?php echo BASE_URL; ?>/viaticos/reportes" method="POST" autocomplete="off" target="_blank">
 
                     <div>
                         <label class="text-dark py-4 fw-bold">Fecha Inicial:</label>
