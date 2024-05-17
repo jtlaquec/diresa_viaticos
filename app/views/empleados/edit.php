@@ -54,7 +54,7 @@
         </div>
 
         <div class="d-flex justify-content-center py-3">
-            <button type="submit" class="btn btn-primary">Actualizar Empleado</button>
+            <button type="submit" class="btn btn-primary">Actualizar Personal</button>
         </div>
 
     </form>

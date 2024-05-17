@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', 'http://localhost/diresa_viaticos/public');
+define('BASE_URL', 'http://localhost:8080/diresa_viaticos/public');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'rrhh');
 define('DB_USER', 'root');

@@ -1,8 +1,9 @@
 <div>
     <div>
         <div class="text-center">
-            <input type="text" id="searchInput" placeholder="Buscar Leyes Laborales..." style="width: 600px; border: 2px solid gray; color:black;" autocomplete="off">
-
+            <div>
+                <input class="px-2 py-1 rounded" type="text" id="searchInput" placeholder="Buscar Leyes Laborales..." style="width: 600px; border: 2px solid gray; color:black;" autocomplete="off">
+            </div>
             <div class="center py-3">
                 <a href="<?php echo BASE_URL; ?>/ley_laboral/create">
                     <button class="btn btn-secondary">

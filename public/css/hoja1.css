@@ -59,12 +59,11 @@ body{
 	/*color: #F29B30; Color de fuente*/
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-	background-image: url('https://img.freepik.com/premium-photo/abstract-white-background-with-smooth-lines_476363-330.jpg');
+	background-image: url('../images/fondo.jpg');
     background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* La imagen de fondo se mantiene fija al hacer scroll */
     background-position: center; /* Centra la imagen de fondo */
-
 
 }
 
@@ -167,3 +166,31 @@ input[type="submit"]:hover{
 	background: yellow;
 	transition: .6s; 
 }
+
+
+.pagination {
+	display: flex;
+	justify-content: center;
+  }
+
+  .pagination a,
+  .pagination span {
+	margin: 0 5px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+  }
+
+  .pagination a.disabled,
+  .pagination span.disabled {
+	color: #ccc;
+	cursor: not-allowed;
+  }
+
+  .pagination a.active,
+  .pagination span.active {
+	background-color: #000;
+	color: #fff;
+  }

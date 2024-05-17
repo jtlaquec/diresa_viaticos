@@ -29,7 +29,7 @@ class PersonalController extends Controller
         $condiciones_laborales = $condiciones_laborales->index();
 
         $nombre = 'Empleados';
-        $titulo = 'Listado de Empleados';
+        $titulo = 'MANTENIMIENTO: PERSONAL';
         return $this->view('empleados/index', compact('data', 'titulo', 'nombre','condiciones_laborales'));
     }
 

@@ -1,12 +1,15 @@
 <div>
     <div>
         <div class="text-center">
-            <input type="text" id="searchInput" placeholder="Buscar Empleados..." style="width: 600px; border: 2px solid gray; color:black;" autocomplete="off">
+            <div>
+                <input class="px-2 py-1 rounded" type="text" id="searchInput" placeholder="Buscar Personal..." style="width: 600px; border: 2px solid gray; color:black;" autocomplete="off">
+            </div>
+
 
             <div class="center py-3">
                 <a href="<?php echo BASE_URL; ?>/empleados/create">
                     <button class="btn btn-secondary">
-                        Crear Nuevo Empleado
+                        Crear Nuevo Personal
                     </button>
                 </a>
             </div>
@@ -77,7 +80,7 @@
 
                     <div class="form-group py-2">
                         <div>
-                        <label for="condicion_laboral_IdClab" class="fw-bold py-2">Seleccione una Condición Laboral</label>
+                            <label for="condicion_laboral_IdClab" class="fw-bold py-2">Seleccione una Condición Laboral</label>
                         </div>
                         <select class="py-2" name="condicion_laboral_IdClab" required>
 
