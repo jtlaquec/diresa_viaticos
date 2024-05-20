@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `rrhh`.`condicion_laboral` (
   `condicion_laboral` VARCHAR(20) NULL,
   `ley_laboral_IdLlab` INT NOT NULL,
   PRIMARY KEY (`IdClab`),
-  INDEX `fk_condicion_laboral_ley_laboral1_idx` (`ley_laboral_IdLlab` ASC) ,
+  INDEX `fk_condicion_laboral_ley_laboral1_idx` (`ley_laboral_IdLlab` ASC),
   CONSTRAINT `fk_condicion_laboral_ley_laboral1`
     FOREIGN KEY (`ley_laboral_IdLlab`)
     REFERENCES `rrhh`.`ley_laboral` (`IdLlab`)
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS `rrhh`.`personal` (
   `banco_IdBco` INT NOT NULL,
   `ctacte` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`IdPer`),
-  INDEX `fk_personal_condicion_laboral1_idx` (`condicion_laboral_IdClab` ASC) ,
-  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC) ,
-  INDEX `fk_personal_banco1_idx` (`banco_IdBco` ASC) ,
+  INDEX `fk_personal_condicion_laboral1_idx` (`condicion_laboral_IdClab` ASC),
+  UNIQUE INDEX `dni_UNIQUE` (`dni` ASC),
+  INDEX `fk_personal_banco1_idx` (`banco_IdBco` ASC),
   CONSTRAINT `fk_personal_condicion_laboral1`
     FOREIGN KEY (`condicion_laboral_IdClab`)
     REFERENCES `rrhh`.`condicion_laboral` (`IdClab`)
@@ -86,12 +86,12 @@ CREATE TABLE IF NOT EXISTS `rrhh`.`viatico` (
   `IdVtco` INT NOT NULL AUTO_INCREMENT,
   `numero_viatico` INT NOT NULL,
   `fecha` DATE NOT NULL,
-  `monto` FLOAT NOT NULL,
+  `monto` DECIMAL(9,2) NOT NULL,
   `siaf` INT NOT NULL,
   `personal_IdPer` INT NOT NULL,
   PRIMARY KEY (`IdVtco`),
-  UNIQUE INDEX `siaf_UNIQUE` (`siaf` ASC) ,
-  INDEX `fk_viatico_personal1_idx` (`personal_IdPer` ASC) ,
+  UNIQUE INDEX `siaf_UNIQUE` (`siaf` ASC),
+  INDEX `fk_viatico_personal1_idx` (`personal_IdPer` ASC),
   CONSTRAINT `fk_viatico_personal1`
     FOREIGN KEY (`personal_IdPer`)
     REFERENCES `rrhh`.`personal` (`IdPer`)
@@ -128,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `rrhh`.`usuario_nivel` (
   `IdUserNivel` INT NOT NULL AUTO_INCREMENT,
   `usuario_IdUser` INT NOT NULL,
   `nivel_IdNivel` INT NOT NULL,
-  INDEX `fk_usuario_nivel_usuario1_idx` (`usuario_IdUser` ASC) ,
-  INDEX `fk_usuario_nivel_nivel1_idx` (`nivel_IdNivel` ASC) ,
+  INDEX `fk_usuario_nivel_usuario1_idx` (`usuario_IdUser` ASC),
+  INDEX `fk_usuario_nivel_nivel1_idx` (`nivel_IdNivel` ASC),
   PRIMARY KEY (`IdUserNivel`),
   CONSTRAINT `fk_usuario_nivel_usuario1`
     FOREIGN KEY (`usuario_IdUser`)
