@@ -12,7 +12,7 @@
 
         <div class="form-group py-2">
             <label for="monto" class="fw-bold py-2">Monto</label>
-            <input type="number" id="monto" name="monto" class="form-control" required placeholder="Ingrese el monto">
+            <input type="number" step="0.01" id="monto" name="monto" class="form-control" required placeholder="Ingrese el monto">
         </div>
 
         <div class="form-group py-2">

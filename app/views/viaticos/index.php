@@ -38,7 +38,12 @@
                     <tr>
                         <td class="segunda_fila center" style="width: 50px;"><?php echo $row["IdVtco"]; ?></td>
                         <td class="segunda_fila center" style="width: 90px;"><?php echo $row["numero_viatico"]; ?></td>
-                        <td class="segunda_fila center" style="width: 251px;"><?php echo $row["fecha"]; ?></td>
+                        <td class="segunda_fila center" style="width: 251px;">
+                            <?php
+                            $fecha = new DateTime($row["fecha"]);
+                            echo $fecha->format('d/m/Y');
+                            ?>
+                        </td>
                         <td class="segunda_fila center" style="width: 400px;"><?php echo $row["monto"]; ?></td>
                         <td class="segunda_fila center" style="width: 300px;"><?php echo $row["siaf"]; ?></td>
                         <td class="segunda_fila center" style="width: 400px;"><?php echo $row["nombre"]; ?></td>

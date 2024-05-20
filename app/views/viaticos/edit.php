@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center;" class="text-dark">
 
-   
+
     <form action="<?php echo BASE_URL; ?>/viaticos/<?php echo $data['IdVtco']; ?>" method="POST" style="width: 40%; background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
 
@@ -17,7 +17,7 @@
 
         <div class="form-group py-2">
             <label for="monto" class="fw-bold py-2">Monto</label>
-            <input type="number" id="monto" name="monto" class="form-control" required placeholder="Ingrese el monto" value="<?php echo $data['monto']; ?>">
+            <input type="number" step="0.01" id="monto" name="monto" class="form-control" required placeholder="Ingrese el monto" value="<?php echo number_format($data['monto'], 2, '.', ''); ?>">
         </div>
 
         <div class="form-group py-2">
@@ -48,7 +48,7 @@
     </form>
 
 
-    
+
 </div>
 
 <a href="<?php echo BASE_URL; ?>/viaticos" style="position: fixed; bottom: 20px; left: 20px;">
