@@ -11,7 +11,7 @@
         </div>
 
         <div class="form-group py-2">
-            <label for="fecha" class="fw-bold py-2">Fecha</label>
+            <label for="fecha" class="fw-bold py-2">Fecha HOY</label>
             <input type="date" id="fecha" name="fecha" class="form-control" required value="<?php echo $data['fecha']; ?>">
         </div>
 
