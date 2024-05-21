@@ -93,12 +93,13 @@ class PersonalController extends Controller
 
         $bancos = new Banco();
         $condiciones_laborales = new CondicionLaboral();
+        $tipos_documentos = new TipoDocumento();
 
         $bancos = $bancos->index();
         $condiciones_laborales = $condiciones_laborales->index();
+        $tipos_documentos = $tipos_documentos->index();
 
-
-        return $this->view('empleados/edit', compact('data', 'titulo', 'bancos', 'condiciones_laborales'));
+        return $this->view('empleados/edit', compact('data', 'titulo', 'bancos', 'condiciones_laborales','tipos_documentos'));
     }
 
     public function update($id)
@@ -119,6 +120,7 @@ class PersonalController extends Controller
 
         $data = [
             'dni' => $_POST['dni'],
+            'tipo_documento_IdTdoc' => $_POST['tipo_documento_IdTdoc'],
             'condicion_laboral_IdClab' => $_POST['condicion_laboral_IdClab'],
             'nombre' => $_POST['nombre'],
             'banco_IdBco' => $_POST['banco_IdBco'],
