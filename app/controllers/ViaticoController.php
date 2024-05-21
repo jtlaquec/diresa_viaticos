@@ -173,11 +173,10 @@ class ViaticoController extends Controller
 
     public function exportar()
     {
-        if (isset($_POST['fecha_inicio']) && isset($_POST['fecha_fin'])) {
+        if (isset($_POST['numero_viatico'])) {
     
-            $fechaInicio = $_POST['fecha_inicio'];
-            $fechaFin = $_POST['fecha_fin'];
-            $reportData = $this->model->datosExportacion($fechaInicio, $fechaFin);
+            $numeroViatico = $_POST['numero_viatico'];
+            $reportData = $this->model->datosExportacion($numeroViatico);
             $txtContent = '';
     
             if (empty($reportData)) {
@@ -191,14 +190,16 @@ class ViaticoController extends Controller
                     $txtContent .= $row['ctacte'] . ',' . $row['monto'] . ',' . $row['IdTdoc'] . ',' . $row['dni'] . "\n";
                 }
     
-                header('Content-Type: text/plain');
-                header('Content-Disposition: attachment; filename="Reporte_Viaticos.txt"');
-                header('Content-Length: ' . strlen($txtContent));
-                echo $txtContent;
+            $fileName = "Reporte_Viatico_" . $numeroViatico . ".txt";
+
+            header('Content-Type: text/plain');
+            header('Content-Disposition: attachment; filename="' . $fileName . '"');
+            header('Content-Length: ' . strlen($txtContent));
+            echo $txtContent;
             }
     
         } else {
-            echo "Fechas no proporcionadas";
+            echo "Número de Viático no Proporcionado";
         }
     }
     

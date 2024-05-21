@@ -36,16 +36,14 @@ class Viatico extends BaseModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function datosExportacion($fechaInicio, $fechaFin) {
+    public function datosExportacion($numero_viatico) {
         $sql = "SELECT * FROM {$this->table} AS v
                 INNER JOIN personal AS p ON v.personal_IdPer = p.IdPer
                 INNER JOIN tipo_documento AS tp ON p.tipo_documento_IdTdoc = tp.IdTdoc
-                WHERE v.fecha BETWEEN :fechaInicio AND :fechaFin
-                ORDER BY v.fecha ASC";
+                WHERE v.numero_viatico = :numero_viatico";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':fechaInicio', $fechaInicio);
-        $stmt->bindParam(':fechaFin', $fechaFin);
+        $stmt->bindParam(':numero_viatico', $numero_viatico);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

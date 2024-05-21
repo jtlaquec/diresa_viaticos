@@ -106,7 +106,7 @@
 </div>
 
 <div class="modal fade" id="ExportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-dark fw-bold" id="exampleModalLabel">Exportación de Viáticos</h5>
@@ -116,21 +116,41 @@
 
                 <form action="<?php echo BASE_URL; ?>/viaticos/exportar" method="POST" autocomplete="off" target="_blank">
 
-                    <div>
-                        <label class="text-dark py-4 fw-bold">Fecha Inicial:</label>
-                        <input type="date" name="fecha_inicio" id="fecha_inicio" value="<?php echo date('Y-m-d'); ?>" required>
-                    </div>
+                    <div class="form-group py-2">
+                        <div>
+                            <label for="IdVtco" class="fw-bold py-2">Seleccione el Número de Viático</label>
+                        </div>
 
-                    <div>
-                        <label class="text-dark fw-bold">Fecha Final:</label>
-                        <input type="date" name="fecha_fin" id="fecha_fin" value="<?php echo date('Y-m-d'); ?>" required>
+                        <select class="js-example-basic-single py-2" name="numero_viatico" id="mySelect2" required>
+
+                            <?php
+                            if (!empty($data)) {
+                                foreach ($data as $row) {
+                                    echo '<option value="' . htmlspecialchars($row['numero_viatico']) . '">' . htmlspecialchars($row['numero_viatico'] . " - " . $row['nombre']) . '</option>';
+                                }
+                            } else {
+                                echo '<option>No hay Condiciones Laborales disponibles</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
             </div>
             <div class="modal-footer">
-                <!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                <button type="submit" class="btn btn-primary ">Exportar (TXT)</button>
+                <div class="w-100 text-center">
+                    <button type="submit" class="btn btn-primary">Exportar (TXT)</button>
+                </div>
             </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#ExportModal').on('shown.bs.modal', function() {
+            $('#mySelect2').select2({
+                dropdownParent: $('#ExportModal')
+            });
+        });
+    });
+</script>
