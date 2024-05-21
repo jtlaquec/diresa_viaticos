@@ -45,7 +45,10 @@
                             echo $fecha->format('d/m/Y');
                             ?>
                         </td>
-                        <td class="segunda_fila center" style="width: 400px;"><?php echo $row["monto"]; ?></td>
+                        <td class="segunda_fila center" style="width: 400px;">
+                            <?php echo number_format($row["monto"], 2, '.', ','); ?>
+                        </td>
+
                         <td class="segunda_fila center" style="width: 300px;"><?php echo $row["siaf"]; ?></td>
                         <td class="segunda_fila center" style="width: 400px;"><?php echo $row["nombre"]; ?></td>
                         <td class="bot center">

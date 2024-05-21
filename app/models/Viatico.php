@@ -36,6 +36,20 @@ class Viatico extends BaseModel {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function datosExportacion($fechaInicio, $fechaFin) {
+        $sql = "SELECT * FROM {$this->table} AS v
+                INNER JOIN personal AS p ON v.personal_IdPer = p.IdPer
+                INNER JOIN tipo_documento AS tp ON p.tipo_documento_IdTdoc = tp.IdTdoc
+                WHERE v.fecha BETWEEN :fechaInicio AND :fechaFin
+                ORDER BY v.fecha ASC";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':fechaInicio', $fechaInicio);
+        $stmt->bindParam(':fechaFin', $fechaFin);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function siafExiste($siaf) {
         $sql = "SELECT COUNT(*) FROM {$this->table} WHERE siaf = :siaf";
         $stmt = $this->db->prepare($sql);

@@ -6,6 +6,7 @@ use Core\Controller;
 use App\Models\Viatico;
 use App\Models\Personal;
 use App\Models\PDFViaticos;
+use App\Models\TxtViaticos;
 use PDOException;
 
 class ViaticoController extends Controller
@@ -169,4 +170,37 @@ class ViaticoController extends Controller
             echo "Fechas no proporcionadas";
         }
     }
+
+    public function exportar()
+    {
+        if (isset($_POST['fecha_inicio']) && isset($_POST['fecha_fin'])) {
+    
+            $fechaInicio = $_POST['fecha_inicio'];
+            $fechaFin = $_POST['fecha_fin'];
+            $reportData = $this->model->datosExportacion($fechaInicio, $fechaFin);
+            $txtContent = '';
+    
+            if (empty($reportData)) {
+                header('Content-Type: text/plain');
+                echo "No hay registros en las fechas ingresadas.";
+            } else {
+
+                //$txtContent .= "ctacte,monto,IdTdoc,dni\n";
+                
+                foreach ($reportData as $row) {
+                    $txtContent .= $row['ctacte'] . ',' . $row['monto'] . ',' . $row['IdTdoc'] . ',' . $row['dni'] . "\n";
+                }
+    
+                header('Content-Type: text/plain');
+                header('Content-Disposition: attachment; filename="Reporte_Viaticos.txt"');
+                header('Content-Length: ' . strlen($txtContent));
+                echo $txtContent;
+            }
+    
+        } else {
+            echo "Fechas no proporcionadas";
+        }
+    }
+    
+    
 }
