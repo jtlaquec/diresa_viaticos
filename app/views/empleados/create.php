@@ -1,5 +1,22 @@
 <div style="display: flex; justify-content: center;" class="text-dark">
     <form action="<?php echo BASE_URL; ?>/empleados" method="POST" style="width: 40%; background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+        <div class="form-group py-2">
+            <label for="tipo_documento_IdTdoc" class="fw-bold py-2">Tipo de Documento</label>
+            <select class="js-example-basic-single form-control  py-2" name="tipo_documento_IdTdoc" required>
+                <option value="" disabled selected>Seleccione un tipo de documento</option>
+                <?php
+                if (!empty($tipos_documentos)) {
+                    foreach ($tipos_documentos as $tipo_documento) {
+                        echo '<option value="' . htmlspecialchars($tipo_documento['IdTdoc']) . '">' . htmlspecialchars($tipo_documento['tip_doc']) . '</option>';
+                    }
+                } else {
+                    echo '<option>No hay Tipos de Documentos disponibles</option>';
+                }
+                ?>
+            </select>
+        </div>
+
         <div class="form-group py-2">
             <label for="dni" class="fw-bold py-2">DNI</label>
             <input type="number" id="dni" name="dni" class="form-control" required placeholder="Ingrese el número de DNI">

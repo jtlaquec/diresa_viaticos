@@ -18,7 +18,8 @@
             <thead>
                 <tr>
                     <th class="primera_fila center" style="height:50px;">Id</th>
-                    <th class="primera_fila center">DNI</th>
+                    <th class="primera_fila center">IdTdoc</th>
+                    <th class="primera_fila center">Documento</th>
                     <th class="primera_fila center">C. Laboral</th>
                     <th class="primera_fila center">Nombre</th>
                     <th class="primera_fila center">Banco</th>
@@ -37,8 +38,9 @@
                 <?php foreach ($data as $row) : ?>
                     <tr>
                         <td class="segunda_fila center" style="width: 50px;"><?php echo $row["IdPer"]; ?></td>
-                        <td class="segunda_fila center" style="width: 90px;"><?php echo $row["dni"]; ?></td>
-                        <td class="segunda_fila center" style="width: 251px;"><?php echo $row["condicion_laboral"]; ?></td>
+                        <td class="segunda_fila center" style="width: 90px;"><?php echo $row["IdTdoc"] ." ".$row["tip_doc"] ; ?></td>
+                        <td class="segunda_fila center" style="width: 120px;"><?php echo $row["dni"]; ?></td>
+                        <td class="segunda_fila center" style="width: 200px;"><?php echo $row["condicion_laboral"]; ?></td>
                         <td class="segunda_fila center" style="width: 400px;"><?php echo $row["nombre"]; ?></td>
                         <td class="segunda_fila center" style="width: 300px;"><?php echo $row["banco"]; ?></td>
                         <td class="segunda_fila center" style="width: 200px;"><?php echo $row["ctacte"]; ?></td>

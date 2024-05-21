@@ -8,6 +8,7 @@ use App\Models\Banco;
 use App\Models\Personal;
 use App\Models\CondicionLaboral;
 use App\Models\PDFPersonal;
+use App\Models\TipoDocumento;
 
 class PersonalController extends Controller
 {
@@ -45,10 +46,12 @@ class PersonalController extends Controller
         $titulo = 'Crear Nuevo Personal';
         $bancos = new Banco();
         $condiciones_laborales = new CondicionLaboral();
+        $tipos_documentos = new TipoDocumento();
 
         $bancos = $bancos->index();
         $condiciones_laborales = $condiciones_laborales->index();
-        return $this->view('empleados/create', compact('titulo', 'bancos', 'condiciones_laborales'));
+        $tipos_documentos = $tipos_documentos->index();
+        return $this->view('empleados/create', compact('titulo', 'bancos', 'condiciones_laborales','tipos_documentos'));
     }
 
     public function store()
@@ -66,6 +69,7 @@ class PersonalController extends Controller
         }
         $data = [
             'dni' => $_POST['dni'],
+            'tipo_documento_IdTdoc' => $_POST['tipo_documento_IdTdoc'],
             'condicion_laboral_IdClab' => $_POST['condicion_laboral_IdClab'],
             'nombre' => $_POST['nombre'],
             'banco_IdBco' => $_POST['banco_IdBco'],

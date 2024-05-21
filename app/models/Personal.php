@@ -17,7 +17,8 @@ class Personal extends BaseModel
     {
         $sql = "SELECT * FROM {$this->table} as p
         INNER JOIN banco as b ON p.banco_IdBco = b.IdBco
-        INNER JOIN condicion_laboral as cl ON p.condicion_laboral_IdClab = cl.IdClab";
+        INNER JOIN condicion_laboral as cl ON p.condicion_laboral_IdClab = cl.IdClab
+        INNER JOIN tipo_documento as td ON p.tipo_documento_IdTdoc = td.IdTdoc";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
