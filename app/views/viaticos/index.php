@@ -26,6 +26,7 @@
                     <th class="primera_fila center" colspan="2">
                         <div align="center">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Reporte</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#ExportModal">Export</button>
                             <a href="<?php echo BASE_URL; ?>">
                                 <button type="button">Salir</button>
                             </a>
@@ -95,6 +96,36 @@
             <div class="modal-footer">
                 <!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                 <button type="submit" class="btn btn-primary ">Generar Reporte (PDF)</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ExportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark fw-bold" id="exampleModalLabel">Exportación de Viáticos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="<?php echo BASE_URL; ?>/viaticos/exportar" method="POST" autocomplete="off" target="_blank">
+
+                    <div>
+                        <label class="text-dark py-4 fw-bold">Fecha Inicial:</label>
+                        <input type="date" name="fecha_inicio" id="fecha_inicio" value="<?php echo date('Y-m-d'); ?>" required>
+                    </div>
+
+                    <div>
+                        <label class="text-dark fw-bold">Fecha Final:</label>
+                        <input type="date" name="fecha_fin" id="fecha_fin" value="<?php echo date('Y-m-d'); ?>" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <!--         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                <button type="submit" class="btn btn-primary ">Exportar (TXT)</button>
             </div>
             </form>
         </div>

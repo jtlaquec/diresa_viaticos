@@ -8,6 +8,7 @@ function resource($name, $controller, $auth = true) {
             "$name/{id}" => ['controller' => $controller, 'method' => 'show', 'auth' => $auth],
             "$name/{id}/edit" => ['controller' => $controller, 'method' => 'edit', 'auth' => $auth],
             "$name/reportes" => ['controller' => $controller, 'method' => 'mostrarReporte', 'auth' => $auth],
+            "$name/exportar" => ['controller' => $controller, 'method' => 'exportar', 'auth' => $auth],
         ],
         'POST' => [
             $name => ['controller' => $controller, 'method' => 'store', 'auth' => $auth],
