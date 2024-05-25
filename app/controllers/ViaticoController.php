@@ -171,7 +171,8 @@ class ViaticoController extends Controller
         }
     }
 
-    public function exportar()
+    //Exportacion anterior en texto
+    public function exportarTexto()
     {
         if (isset($_POST['numero_viatico'])) {
     
@@ -196,6 +197,63 @@ class ViaticoController extends Controller
             header('Content-Disposition: attachment; filename="' . $fileName . '"');
             header('Content-Length: ' . strlen($txtContent));
             echo $txtContent;
+            }
+    
+        } else {
+            echo "Número de Viático no Proporcionado";
+        }
+    }
+
+    public function exportar()
+    {
+        if (isset($_POST['numero_viatico'])) {
+    
+            $numeroViatico = $_POST['numero_viatico'];
+            $reportData = $this->model->datosExportacion($numeroViatico);
+    
+            if (empty($reportData)) {
+                header('Content-Type: text/plain');
+                echo "No hay registros en las fechas ingresadas.";
+            } else {
+                // Definimos la estructura de la tabla DBF
+                $columns = [
+                    ['NUM_CTA', 'C', 20],   // Número de cuenta, tipo CHAR, longitud 20
+                    ['TIPO_DOC', 'C', 2],   // Tipo de documento, tipo CHAR, longitud 2
+                    ['NUM_DOC', 'C', 20],   // Número de documento, tipo CHAR, longitud 20
+                    ['MONTO', 'N', 19, 2],  // Monto, tipo NUMERIC, longitud 19, 2 decimales
+                    ['ESTADO', 'C', 1]      // Estado, tipo CHAR, longitud 1
+                ];
+    
+                // Crear la base de datos DBF
+                $fileName = "V_" . $numeroViatico . ".dbf";
+                $dbf = dbase_create($fileName, $columns);
+    
+                if (!$dbf) {
+                    die("Error al crear la base de datos DBF.");
+                }
+
+                // Insertamos los datos
+                foreach ($reportData as $row) {
+                    $record = [
+                        $row['ctacte'],
+                        $row['IdTdoc'],
+                        $row['dni'],
+                        $row['monto'],
+                        'I'
+                    ];
+                    if (!dbase_add_record($dbf, $record)) {
+                        echo "Error al agregar el registro: " . implode(', ', $record) . "\n";
+                    }
+                }
+    
+                dbase_close($dbf);
+    
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename="' . $fileName . '"');
+                header('Content-Length: ' . filesize($fileName));
+                readfile($fileName);
+
+                unlink($fileName);
             }
     
         } else {

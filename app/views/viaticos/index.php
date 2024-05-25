@@ -137,7 +137,7 @@
             </div>
             <div class="modal-footer">
                 <div class="w-100 text-center">
-                    <button type="submit" class="btn btn-primary">Exportar (TXT)</button>
+                    <button type="submit" class="btn btn-primary">Exportar (DBF)</button>
                 </div>
             </div>
             </form>
