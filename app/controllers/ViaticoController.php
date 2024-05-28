@@ -225,7 +225,8 @@ class ViaticoController extends Controller
                 ];
     
                 // Crear la base de datos DBF
-                $fileName = "V_" . $numeroViatico . ".dbf";
+                //$fileName = "V_" . $numeroViatico . ".dbf";
+                $fileName = "ABONVIAT.DBF";
                 $dbf = dbase_create($fileName, $columns);
     
                 if (!$dbf) {
