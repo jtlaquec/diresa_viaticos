@@ -12,6 +12,10 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card" style="width: 30rem;">
             <div class="card-body">
+                <div class="py-3">
+                    <img src="<?php echo BASE_URL; ?>/images/dashboard.png" alt="Dashboard" style="height: 200px;" class="mx-auto d-block">
+                </div>
+
                 <h5 class="card-title text-center">Sistema de Viáticos</h5>
                 <form action="<?php echo BASE_URL ?>/login" method="post">
                     <div class="mb-3">
@@ -26,7 +30,7 @@
                 </form>
                 <h4 class="text-red center">
 
-                        <?php echo $error ?? ''; ?>
+                    <?php echo $error ?? ''; ?>
 
                 </h4>
             </div>
